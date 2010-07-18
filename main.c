@@ -57,14 +57,12 @@ int printServerDetails(char *ipadress,int port) {
 	int sock;
 	#endif
 	
-	struct sockaddr_in addr, *addr_ptr;
-	addr_ptr = &addr;
 	
 	struct A2S_INFO hl2info_serverInfoS, *hl2info_serverInfoPTR;
 	hl2info_serverInfoPTR = &hl2info_serverInfoS;
 	
 	
-	if(hl2info_connect(&sock, addr_ptr, ipadress, &port) == -1) return 1;
+	if(hl2info_connect(&sock, ipadress, &port) == -1) return 1;
 	
 	
 	printf("\n.:: #1 ::.\n");

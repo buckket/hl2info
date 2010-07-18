@@ -20,9 +20,11 @@ void hl2info_startup(void) {
 // ============================
 // = start and connect socket =
 // ============================
-int hl2info_connect(int *sock, struct sockaddr_in *addr, char *ip, int *port) {
+int hl2info_connect(int *sock, char *ip, int *port) {
 	
 	long rc;
+	
+	struct sockaddr_in addr;
 	
 	*sock = socket(AF_INET,SOCK_DGRAM,0);
 	
@@ -32,11 +34,11 @@ int hl2info_connect(int *sock, struct sockaddr_in *addr, char *ip, int *port) {
 	setsockopt (*sock, SOL_SOCKET, SO_SNDTIMEO, (char*)&tv, sizeof tv);
 
 	
-	(*addr).sin_family=AF_INET;
-	(*addr).sin_port=htons(*port);
-	(*addr).sin_addr.s_addr=inet_addr(ip);
+	addr.sin_family=AF_INET;
+	addr.sin_port=htons(*port);
+	addr.sin_addr.s_addr=inet_addr(ip);
 	
-	rc=connect(*sock,(struct sockaddr*)addr,sizeof(*addr));
+	rc=connect(*sock,(struct sockaddr*)&addr,sizeof(*addr));
 	
 	if(rc != 0) {
 		printf("[-] Error while setting up socket!\n");

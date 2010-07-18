@@ -9,7 +9,7 @@
 
 #include "winSock.c"
 
-int hl2info_connect(int *sock, struct sockaddr_in *addr, char *ip, int *port);
+int hl2info_connect(int *sock, char *ip, int *port);
 void hl2info_close(int *sock);
 
 int hl2info_udpSend(int *sock, char *bufferS, int sizeOfBuffer);

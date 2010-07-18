@@ -38,7 +38,7 @@ struct A2S_PLAYER {
 	char	playerIndex;
 	
 	char 	playerName[255];
-	int		playerKills;
+	int 	playerKills;
 	float	playerConnected;
 };
 
