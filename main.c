@@ -58,7 +58,7 @@ int printServerDetails(char *ipadress,int port) {
 	#endif
 	
 	
-	struct A2S_INFO hl2info_serverInfoS, *hl2info_serverInfoPTR;
+	A2S_INFO hl2info_serverInfoS, *hl2info_serverInfoPTR;
 	hl2info_serverInfoPTR = &hl2info_serverInfoS;
 	
 	
@@ -80,8 +80,8 @@ int printServerDetails(char *ipadress,int port) {
 
 	printf(" | Latency: %d | IP: %s:%d\n\n", hl2info_ping(&sock), ipadress, port);
 	
-	struct A2S_PLAYER *playerPTR;
-	playerPTR = (struct A2S_PLAYER*) calloc(hl2info_serverInfoS.numberMax,sizeof(struct A2S_PLAYER));
+	A2S_PLAYER *playerPTR;
+	playerPTR = (A2S_PLAYER*) calloc(hl2info_serverInfoS.numberMax,sizeof(A2S_PLAYER));
 	if (playerPTR == NULL) return 1;
 	
 	if(hl2info_challenge(&sock, A2S_challenge) == -1) return 1;

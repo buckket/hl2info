@@ -41,7 +41,7 @@ int hl2info_ping(int *sock) {
 // ===========================
 // = get global server infos =
 // ===========================
-int hl2info_serverInfo(int *sock, struct A2S_INFO *serverInfo) {
+int hl2info_serverInfo(int *sock, A2S_INFO *serverInfo) {
 	
 	char bufferS[PACKETSIZE];
 	char bufferR[PACKETSIZE];
@@ -138,7 +138,7 @@ int hl2info_challenge(int *sock, char *challenge) {
 // ===================
 // = Get Player Info =
 // ===================
-int hl2info_player(int *sock, char *challenge, struct A2S_PLAYER *playerInfo) {
+int hl2info_player(int *sock, char *challenge, A2S_PLAYER *playerInfo) {
 	
 	char bufferS[PACKETSIZE];
 	char bufferR[PACKETSIZE] = { 0 };

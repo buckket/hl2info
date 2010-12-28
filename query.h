@@ -17,7 +17,7 @@
 #define A2S_GETPLAYER "\xFF\xFF\xFF\xFF\x55"
 #define A2S_GETPLAYER_LENGTH 9
 
-struct A2S_INFO {
+typedef struct A2S_INFO {
 	
 	char serverName[255];
 	char map[255];
@@ -31,16 +31,16 @@ struct A2S_INFO {
 	char os;
 	char password;
 	char vac;
-};
+} A2S_INFO;
 
-struct A2S_PLAYER {
+typedef struct A2S_PLAYER {
 	
 	char	playerIndex;
 	
 	char 	playerName[255];
 	int 	playerKills;
 	float	playerConnected;
-};
+} A2S_PLAYER;
 
 char A2S_challenge[4];
 
@@ -49,6 +49,6 @@ char A2S_challenge[4];
 
 
 int hl2info_ping(int *sock);
-int hl2info_serverInfo(int *sock,struct A2S_INFO *serverInfo);
+int hl2info_serverInfo(int *sock, A2S_INFO *serverInfo);
 int hl2info_challenge(int *sock, char *challenge);
-int hl2info_player(int *sock, char *challenge, struct A2S_PLAYER *playerInfo);
+int hl2info_player(int *sock, char *challenge, A2S_PLAYER *playerInfo);
